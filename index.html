@@ -10,25 +10,43 @@
    </head>
    <body>
     <div class="container">
+        <h1 class="pt-5 pb-5">pick a pie</h1>
       <div class="row">
         <div class="col-md-6">
           <form id="form">
             <div class="form-group">
-              <label for="">base</label>
-              <input type="" class="form-control" id="">
-            </div>
-            <div class="form-group">
-              <label for="pwd">cheese:</label>
-              <input type="" class="form-control" id="">
+              <select name="base" id="select-base">
+                  <option value="" disabled selected value>-- select base --</option>
+                  <option id="base-one" value="base-one">base-one</option>
+                  <option id="base-two" value="base-two">base-two</option>
+                  <option id="base-three" value="base-three">base-three</option>
+              </select>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox">toppings</label>
+              <label><input type="checkbox">top1</label>
+              <label><input type="checkbox">top2</label>
+              <label><input type="checkbox">top3</label>
+              <label><input type="checkbox">top4</label>
+              <label><input type="checkbox">top5</label>
+              <label><input type="checkbox">top6</label>
             </div>
             <div class="form-group">
-              <label for="">specialty pies:</label>
-              <input type="" class="form-control" id="">
+              <select name="extras" id="select-extras">
+                  <option value="" disabled selected value>-- select extras --</option>
+                  <option id="extra-one" value="extra-one">extra-one</option>
+                  <option id="extra-two" value="extra-two">extra-two</option>
+                  <option id="extra-three" value="extra-three">extra-three</option>
+              </select>
             </div>
-            <input type="submit" class="btn btn-default" value="submit"></input>
+            <div class="form-group">
+              <select name="extras" id="select-extras">
+                  <option value="" disabled selected value>-- select size --</option>
+                  <option id="small" value="small">small</option>
+                  <option id="medium" value="medium">medium</option>
+                  <option id="large" value="large">large</option>
+              </select>
+            </div>
+            <input type="submit" class="btn btn-custom" value="submit"></input>
           </form>
         </div>
       </div>
