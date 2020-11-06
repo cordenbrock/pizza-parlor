@@ -12,21 +12,23 @@ Func: Pizza()
 
 Func: Pizza.prototype.calculatePizzaCost()
 /// describe: check size of pizza, return flat cost
---> test: let pizzaSize = "small"; console.log(calculatePizzaCost(pizzaSize));
+--> test: let pizzaSize = "small"; console.log(Pizza.calculatePizzaCost(pizzaSize));
 --> expect: 10
 /// describe: calculate single-pizza cost based on lengths of toppings-array and extras-array from Pizza object props
---> test: let pizza.toppings.length = 2; let let pizza.extras.length = 1; console.log(calculatePizzaCost(pizzaSize));
+--> test: let pizza.toppings.length = 2; let pizza.extras.length = 1; console.log(Pizza.calculatePizzaCost(pizzaSize));
 --> expect: 14
 
 Func: Order.prototype.calculateOrderCost()
-/// describe: calculate order cost based on each pizza cost
---> test: 
---> expect:
+/// describe: iterate through each pizza-object element in items array from Order object, thus collecting each pizza-object cost-prop in new costs array
+--> test: let Order = {[{cost: 10}, {cost: 15}], 0}; Order.calculateOrderCost(); console.log(costs);
+--> expect: [10,15]
+/// describe: total values from new costs array, assign sum-value to cost-prop of Order object
+--> test: let Order = {[{cost: 10}, {cost: 15}], 0}; console.log(Order.calculateOrderCost()); 
+--> expect:25
 
 
-
-
-<!-- cancelOrder()
+<!-- 
+cancelOrder()
 --removes order from UI
 --removes order from Order object
 
