@@ -2,3 +2,8 @@ body {
   background: rgba(0, 0, 0, 0.692);
   color: rgb(219, 211, 211)
 }
+
+.btn-custom {
+  background: rgb(65, 23, 23);
+  color: white;
+}

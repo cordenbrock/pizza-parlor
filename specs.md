@@ -1,5 +1,10 @@
 pizzaContructor()
---constructs pizza object
+/// describe: constructs pizza object
+--> test: let pizzaObj = new Pizza(cheese, pepperoni, anchovies, medium)
+--> expect pizzaobj = {base: cheese, toppings: pepperoni, extras: anchovies, size: medium}
+
+
+
 
 addPizzaToOrder();
 --collect and store pizza obj props
@@ -26,8 +31,10 @@ attachEventListeners();
 -edit btn
 
 submit()
---submits form
---collects user input
---clears previous form input fields
+/// describe: submits form, collects user input in object variable
+--> test: let userPizza = new Pizza(base, toppings, extras, size);
+--> expect userPizza = {base: base.val(), toppings: toppings.val(), extras: extras.val(), size: size.val()}
+/// describe: clears previous form input fields
+-->
 
 

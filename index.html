@@ -15,31 +15,50 @@
         <div class="col-md-6">
           <form id="form">
             <div class="form-group">
-              <select name="base" id="select-base">
+              <h3>Select base:</h3>
+              <select name="base" id="select-base" class="form-control" >
                   <option value="" disabled selected value>-- select base --</option>
-                  <option id="base-one" value="base-one">base-one</option>
-                  <option id="base-two" value="base-two">base-two</option>
-                  <option id="base-three" value="base-three">base-three</option>
+                  <option id="base-one" value="base-one">base one</option>
+                  <option id="base-two" value="base-two">base two</option>
+                  <option id="base-three" value="base-three">base three</option>
               </select>
             </div>
-            <div class="checkbox">
-              <label><input type="checkbox">top1</label>
-              <label><input type="checkbox">top2</label>
-              <label><input type="checkbox">top3</label>
-              <label><input type="checkbox">top4</label>
-              <label><input type="checkbox">top5</label>
-              <label><input type="checkbox">top6</label>
-            </div>
             <div class="form-group">
-              <select name="extras" id="select-extras">
+              <h3>Choose Toppings:</h3>
+              
+              <div class="form-check form-check-inline">
+                <input id="select-toppings1" class="form-check-input" type="checkbox" name="toppings" value="top1">
+                <label class="form-check-label" for="inlineCheckbox1">top1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input id="select-toppings2" class="form-check-input" type="checkbox" name="toppings" value="top2">
+                <label class="form-check-label" for="inlineCheckbox2">top2</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input id="select-toppings3" class="form-check-input" type="checkbox" name="toppings" value="top3">
+                <label class="form-check-label" for="inlineCheckbox3">top3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input id="select-toppings4" class="form-check-input" type="checkbox" name="toppings" value="top4">
+                <label class="form-check-label" for="inlineCheckbox4">top4</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input id="select-toppings5" class="form-check-input" type="checkbox" name="toppings" value="top5">
+                <label class="form-check-label" for="inlineCheckbox5">top5</label>
+              </div>
+
+            <div class="form-group">
+              <h3>Choose extras:</h3>
+              <select name="extras" id="select-extras" class="form-control">
                   <option value="" disabled selected value>-- select extras --</option>
-                  <option id="extra-one" value="extra-one">extra-one</option>
-                  <option id="extra-two" value="extra-two">extra-two</option>
-                  <option id="extra-three" value="extra-three">extra-three</option>
+                  <option id="extra-one" value="extra-one">extra one</option>
+                  <option id="extra-two" value="extra-two">extra two</option>
+                  <option id="extra-three" value="extra-three">extra three</option>
               </select>
             </div>
             <div class="form-group">
-              <select name="extras" id="select-extras">
+              <h3>Choose size:</h3>
+              <select name="size" id="select-size" class="form-control">
                   <option value="" disabled selected value>-- select size --</option>
                   <option id="small" value="small">small</option>
                   <option id="medium" value="medium">medium</option>
