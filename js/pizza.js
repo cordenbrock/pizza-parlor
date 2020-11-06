@@ -10,11 +10,25 @@ function Pizza(base, toppings, extras, size) {
   this.toppings = toppings;
   this.extras = extras;
   this.size = size;
+  this.cost = 0;
 };
 
-// Order.prototype.calculateCost() = function() {
-  
-// };
+Pizza.prototype.calculatePizzaCost = function() {
+  switch (this.size) {
+    case "small":
+      this.cost = 10;
+      break;
+    case "medium":
+      this.cost = 13;
+      break;
+    case "large":
+      this.cost = 15;
+      break;
+    default: alert("please select size")
+  }
+  if (this.toppings.length > 0) {this.cost += (this.toppings.length * 1)};
+  if (this.extras.length > 0) {this.cost += (this.extras.length * 2)}
+};
 
 
 // UI Logic
@@ -32,22 +46,27 @@ $(document).ready(function() {
     let base, toppings, extras, size;
     base = $("#select-base");
     toppings = $("input:checkbox[name=toppings]:checked");
-    extras = $("#select-extras");
+    extras = $("input:checkbox[name=extras]:checked");
     size = $("#select-size");
 
     // collect user input
     let baseInputted, toppingsInputted, extrasInputted, sizeInputted;
     baseInputted = base.val()
     toppingsInputted = [];
-    extrasInputted = extras.val();
-    sizeInputted = size.val();
     toppings.each(function() {
       let topping = $(this).val();
       toppingsInputted.push(topping);
     });
+    extrasInputted = [];
+    extras.each(function() {
+      let extra = $(this).val();
+      extrasInputted.push(extra);
+    });    
+    sizeInputted = size.val();
 
     // organize user input
     let userPizza = new Pizza(baseInputted, toppingsInputted, extrasInputted, sizeInputted);
+    userPizza.calculatePizzaCost();
     order.items.push(userPizza);
     console.log(userPizza);
     console.log(order);

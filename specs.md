@@ -1,23 +1,27 @@
 Business Logic
 
-Order()
+Func: Order()
 /// describe: constructs new order object
 --> test: let order = new Order(); console.log(order);
 --> expect: {items: [], cost: 0}
 
-Pizza()
+Func: Pizza()
 /// describe: constructs new pizza object
 --> test: let pizzaObj = new Pizza(cheese, pepperoni, anchovies, medium); console.log(pizzaObj);
 --> expect: {base: cheese, toppings: pepperoni, extras: anchovies, size: medium}
 
-Order.prototype.calculateCost()
-/// describe: total single pizza cost based on pizza properties
---> test: 
---> expect:
-/// describe: total order cost based on each pizza cost
---> test: 
---> expect:
+Func: Pizza.prototype.calculatePizzaCost()
+/// describe: check size of pizza, return flat cost
+--> test: let pizzaSize = "small"; console.log(calculatePizzaCost(pizzaSize));
+--> expect: 10
+/// describe: calculate single-pizza cost based on lengths of toppings-array and extras-array from Pizza object props
+--> test: let pizza.toppings.length = 2; let let pizza.extras.length = 1; console.log(calculatePizzaCost(pizzaSize));
+--> expect: 14
 
+Func: Order.prototype.calculateOrderCost()
+/// describe: calculate order cost based on each pizza cost
+--> test: 
+--> expect:
 
 
 
