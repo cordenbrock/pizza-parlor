@@ -1,8 +1,8 @@
 // Business Logic
 
 function Order() {
-  let items = [];
-  let cost = 0;
+  this.items = [];
+  this.cost = 0;
 };
 
 function Pizza(base, toppings, extras, size) {
@@ -12,10 +12,16 @@ function Pizza(base, toppings, extras, size) {
   this.size = size;
 };
 
+// Order.prototype.calculateCost() = function() {
+  
+// };
+
 
 // UI Logic
 
 $(document).ready(function() {
+  // generate new user order
+  let order = new Order();
 
   // form submission
   $("#form").submit(function(e) {
@@ -28,17 +34,22 @@ $(document).ready(function() {
     toppings = $("input:checkbox[name=toppings]:checked");
     extras = $("#select-extras");
     size = $("#select-size");
-  
-    // user input
-    let baseInputted = base.val()
-    let toppingsInputted = [];
-    let extrasInputted = extras.val();
-    let sizeInputted = size.val();
+
+    // collect user input
+    let baseInputted, toppingsInputted, extrasInputted, sizeInputted;
+    baseInputted = base.val()
+    toppingsInputted = [];
+    extrasInputted = extras.val();
+    sizeInputted = size.val();
     toppings.each(function() {
       let topping = $(this).val();
       toppingsInputted.push(topping);
     });
+
+    // organize user input
     let userPizza = new Pizza(baseInputted, toppingsInputted, extrasInputted, sizeInputted);
+    order.items.push(userPizza);
     console.log(userPizza);
+    console.log(order);
   });
 });

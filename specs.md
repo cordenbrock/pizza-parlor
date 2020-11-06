@@ -1,34 +1,43 @@
-pizzaContructor()
-/// describe: constructs pizza object
---> test: let pizzaObj = new Pizza(cheese, pepperoni, anchovies, medium)
---> expect pizzaobj = {base: cheese, toppings: pepperoni, extras: anchovies, size: medium}
+Business Logic
+
+Order()
+/// describe: constructs new order object
+--> test: let order = new Order(); console.log(order);
+--> expect: {items: [], cost: 0}
+
+Pizza()
+/// describe: constructs new pizza object
+--> test: let pizzaObj = new Pizza(cheese, pepperoni, anchovies, medium); console.log(pizzaObj);
+--> expect: {base: cheese, toppings: pepperoni, extras: anchovies, size: medium}
+
+Order.prototype.calculateCost()
+/// describe: total single pizza cost based on pizza properties
+--> test: 
+--> expect:
+/// describe: total order cost based on each pizza cost
+--> test: 
+--> expect:
 
 
 
 
-addPizzaToOrder();
---collect and store pizza obj props
---add pizza obj to order array
 
-cancelOrder();
---starts order over
-
-
-Pizza.prototype.calculateCost();
-
-cancelOrder()
---removes order from UI and local memory
+<!-- cancelOrder()
+--removes order from UI
+--removes order from Order object
 
 editOrder()
---allows user to select/deselect toppings
+--allows user to select/deselect toppings 
+-->
 
 
-UI
+UI Logic
 
+<!-- 
 attachEventListeners();
--submit btn
 -cancel btn
 -edit btn
+ -->
 
 submit()
 /// describe: submits form, collects user input in object variable
