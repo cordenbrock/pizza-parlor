@@ -11,6 +11,7 @@ function Pizza(base, toppings, extras, size) {
   this.extras = extras;
   this.size = size;
   this.cost = 0;
+  // this.id = uuid();
 };
 
 Pizza.prototype.calculatePizzaCost = function() {
@@ -26,8 +27,9 @@ Pizza.prototype.calculatePizzaCost = function() {
       break;
     default: alert("please select size")
   }
-  if (this.toppings.length > 0) {this.cost += (this.toppings.length * 1)};
-  if (this.extras.length > 0) {this.cost += (this.extras.length * 2)}
+  if (this.toppings.length > 0 || this.extras.length > 0) {
+    this.cost += ((this.toppings.length * 1) + (this.extras.length * 2));
+  };
 };
 
 Order.prototype.calculateOrderCost = function() {
@@ -36,9 +38,13 @@ Order.prototype.calculateOrderCost = function() {
   for (let pizzaObj of this.items) {
     costs.push(pizzaObj.cost);
   };
-  total = costs.reduce((a,b) => a + b, 0)
+  total = costs.reduce((a,b) => a + b)
   this.cost = total;
 };
+
+Order.prototype.removeItem = function() {
+
+}
 
 
 // UI Logic
@@ -49,7 +55,6 @@ $(document).ready(function() {
 
   // form submission
   $("#form").submit(function(e) {
-    // console.log("submission pass");
     e.preventDefault();
 
     // jQuery selector variables
@@ -77,9 +82,10 @@ $(document).ready(function() {
     // organize and display user input
     let userPizza = new Pizza(baseInputted, toppingsInputted, extrasInputted, sizeInputted);
     userPizza.calculatePizzaCost();
-    $("#pizzas").append(`<p>pizzas: ${userPizza.base}, ${userPizza.toppings.join(', ')}, ${userPizza.extras.join(', ')}, ${userPizza.size}, $${userPizza.cost}</p>`);
+    userPizza
+    $("#pizzas").append(`<p><strong>Item:</strong><br>${userPizza.base} <br> ${userPizza.toppings.join(', ')} <br> ${userPizza.extras.join(', ')} <br> ${userPizza.size} <br> $${userPizza.cost}</p>`);
     order.items.push(userPizza);
     order.calculateOrderCost();
-    $("#order-total").html(`<p>pizza cost: $${order.cost}</p>`);
+    $("#order-total").html(`<p>Order Total: $${order.cost}</p>`);
   });
 });

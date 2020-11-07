@@ -32,7 +32,9 @@ cancelOrder()
 --removes order from UI
 --removes order from Order object
 
-editOrder()
+removeItem()
+
+editItem()
 --allows user to select/deselect toppings 
 -->
 
@@ -43,13 +45,13 @@ UI Logic
 attachEventListeners();
 -cancel btn
 -edit btn
+
+display() ???
  -->
 
 submit()
 /// describe: submits form, collects user input in object variable
 --> test: let userPizza = new Pizza(base, toppings, extras, size);
 --> expect userPizza = {base: base.val(), toppings: toppings.val(), extras: extras.val(), size: size.val()}
-/// describe: clears previous form input fields
--->
 
 
