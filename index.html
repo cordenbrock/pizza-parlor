@@ -6,13 +6,14 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script type="module" src="./node_modules/uuid/package.json"></script>
     <script src="js/pizza.js"></script>
    </head>
    <body>
-    <div class="container">
+    <div class="container container-custom">
         <h1 class="pt-5 pb-5">pick a pie</h1>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-custom">
           <form id="form">
             <div class="form-group">
               <h3>Choose pie base:</h3>
@@ -26,7 +27,7 @@
             <div class="form-group">
               <h3>Choose Toppings:</h3>              
               <div class="form-check">
-                <input id="select-toppings1" class="form-check-input" type="checkbox" name="toppings" value="epperoni?">
+                <input id="select-toppings1" class="form-check-input" type="checkbox" name="toppings" value="Pepperoni?">
                 <label class="form-check-label" for="inlineCheckbox1">Pepperoni?</label>
               </div>
               <div class="form-check">
@@ -73,15 +74,15 @@
               <h3>Choose size:</h3>
               <select name="size" id="select-size" class="form-control">
                   <option value="" disabled selected value>-- select size --</option>
-                  <option id="small" value="small">big-wimpin' style -- (x-sm)</option>
-                  <option id="medium" value="medium">paul bunyan mode -- (xx-med)</option>
-                  <option id="large" value="large">cosmic grandiosity -- (xxx-whoa-lg)</option>
+                  <option id="small" value="Big-wimpin' style">Big-wimpin' style -- (sm)</option>
+                  <option id="medium" value="Paul Bunyan mode">Paul Bunyan mode -- (x-med)</option>
+                  <option id="large" value="Cosmic Sagan scale">Cosmic Sagan scale -- (whoa-lg)</option>
               </select>
             </div>
             <input type="submit" class="btn btn-custom" value="submit"></input>
           </form>
         </div>
-        <div class="col-md-6">  
+        <div class="col-md-6 col-custom">  
           <h3>Order Items:</h3>
           <div id="pizzas">
           </div>

@@ -1,3 +1,4 @@
+
 // Business Logic
 
 function Order() {
@@ -16,13 +17,13 @@ function Pizza(base, toppings, extras, size) {
 
 Pizza.prototype.calculatePizzaCost = function() {
   switch (this.size) {
-    case "small":
+    case "Big-wimpin' style":
       this.cost = 10;
       break;
-    case "medium":
+    case "Paul Bunyan mode":
       this.cost = 13;
       break;
-    case "large":
+    case "Cosmic Sagan scale":
       this.cost = 15;
       break;
     default: alert("please select size")
@@ -42,9 +43,9 @@ Order.prototype.calculateOrderCost = function() {
   this.cost = total;
 };
 
-Order.prototype.removeItem = function() {
+// Order.prototype.removeItem = function() {
 
-}
+// }
 
 
 // UI Logic
@@ -83,7 +84,9 @@ $(document).ready(function() {
     let userPizza = new Pizza(baseInput, toppingsInput, extrasInput, sizeInput);
     userPizza.calculatePizzaCost();
     $("#pizzas").append(
-      `<p><strong>Item:</strong><br>Base: ${userPizza.base} <br>Toppings: ${userPizza.toppings.join(', ')} <br>Extras: ${userPizza.extras.join(', ')} <br>Size: ${userPizza.size} <br> Total: $${userPizza.cost}</p>`
+      `<hr><p><strong>Item:</strong><br>Base: ${userPizza.base} <br>Toppings: ${userPizza.toppings.join(', ')} <br>Extras: ${userPizza.extras.join(', ')} <br>Size: ${userPizza.size} <br> Total: $${userPizza.cost}</p>
+      <button type="button" "id="edit" class="btn btn-custom">Edit</button>
+      <button type="button" id="remove" class="btn btn-custom">Remove</button>`
       );
     order.items.push(userPizza);
     order.calculateOrderCost();
