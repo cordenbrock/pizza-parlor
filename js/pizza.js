@@ -65,25 +65,26 @@ $(document).ready(function() {
     size = $("#select-size");
 
     // collect user input
-    let baseInputted, toppingsInputted, extrasInputted, sizeInputted;
-    baseInputted = base.val()
-    toppingsInputted = [];
+    let baseInput, toppingsInput, extrasInput, sizeInput;
+    baseInput = base.val();
+    toppingsInput = [];
     toppings.each(function() {
       let topping = $(this).val();
-      toppingsInputted.push(topping);
+      toppingsInput.push(topping);
     });
-    extrasInputted = [];
+    extrasInput = [];
     extras.each(function() {
       let extra = $(this).val();
-      extrasInputted.push(extra);
+      extrasInput.push(extra);
     });    
-    sizeInputted = size.val();
+    sizeInput = size.val();
 
     // organize and display user input
-    let userPizza = new Pizza(baseInputted, toppingsInputted, extrasInputted, sizeInputted);
+    let userPizza = new Pizza(baseInput, toppingsInput, extrasInput, sizeInput);
     userPizza.calculatePizzaCost();
-    userPizza
-    $("#pizzas").append(`<p><strong>Item:</strong><br>${userPizza.base} <br> ${userPizza.toppings.join(', ')} <br> ${userPizza.extras.join(', ')} <br> ${userPizza.size} <br> $${userPizza.cost}</p>`);
+    $("#pizzas").append(
+      `<p><strong>Item:</strong><br>Base: ${userPizza.base} <br>Toppings: ${userPizza.toppings.join(', ')} <br>Extras: ${userPizza.extras.join(', ')} <br>Size: ${userPizza.size} <br> Total: $${userPizza.cost}</p>`
+      );
     order.items.push(userPizza);
     order.calculateOrderCost();
     $("#order-total").html(`<p>Order Total: $${order.cost}</p>`);
