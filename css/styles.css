@@ -14,21 +14,25 @@ body::after {
   content: "";
   background: url(../media/space-pizza-cat.jpg) no-repeat fixed;
   background-size: cover;
-  opacity: .2;
+  opacity: .5;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  position: absolute;
+  position: fixed;
   z-index: -1;   
 }
 
-.container-custom {
-  background: rgba(0, 0, 0, 0.25);
+header {
+  text-align: center;
+}
+
+.col-custom {
+  background: rgba(0, 0, 255, 0.15);
   padding: 3rem;
   margin: 3rem;
   border-radius: 2rem;
-
+  box-shadow: 0 0 .5rem var(--spaceKittyTeal);
 }
 
 .btn-custom {

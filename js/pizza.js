@@ -3,16 +3,61 @@
 
 function Order() {
   this.items = [];
-  this.cost = 0;
+  this.cost;
+  this.id = 0;
 };
+
+Order.prototype.assignId = function() {
+  this.id += 1;
+  return this.id;
+}
+
+Order.prototype.calculateOrderCost = function() {
+  let costs, total;
+  costs = [];
+  for (let pizzaObj of this.items) {
+    costs.push(pizzaObj.cost);
+  };
+  total = costs.reduce((a,b) => a + b)
+  this.cost = total;
+};
+
+Order.prototype.addOrderItem = function(pizza) {
+  pizza.id = this.assignId();
+  pizza.calculatePizzaCost();
+  pizza.addDescription();
+  this.items.push(pizza);
+  this.calculateOrderCost();
+};
+
+
+
+// Order.prototype.findOrderItem = function(id) {
+//   for (let pizzaObj of this.items) {
+//     if (pizzaObj.id === id) {
+//       this.items = pizzaObj.id;
+//     };
+//   };
+// };
+
+Order.prototype.removeOrderItem = function(id) {
+  let newArr = [];
+  for (let pizzaObj of this.items) {
+    // console.log(this.items.id)
+    newArr = this.items.filter(pizzaObj => pizzaObj.id != id)
+  };
+  this.items = newArr;
+};
+
+
 
 function Pizza(base, toppings, extras, size) {
   this.base = base;
   this.toppings = toppings;
   this.extras = extras;
   this.size = size;
-  this.cost = 0;
-  // this.id = uuid();
+  this.cost;
+  this.description;
 };
 
 Pizza.prototype.calculatePizzaCost = function() {
@@ -33,26 +78,47 @@ Pizza.prototype.calculatePizzaCost = function() {
   };
 };
 
-Order.prototype.calculateOrderCost = function() {
-  let costs, total;
-  costs = [];
-  for (let pizzaObj of this.items) {
-    costs.push(pizzaObj.cost);
-  };
-  total = costs.reduce((a,b) => a + b)
-  this.cost = total;
+Pizza.prototype.addDescription = function() {
+  let baseSplit = this.base.split(' ');
+  this.description = `<p>(1) ${baseSplit[0]}, ${this.toppings.length}-topping(s), ${this.extras.length}-add-on(s) -- ${this.size}<br>Total: $${this.cost}</p>`;
 };
 
-// Order.prototype.removeItem = function() {
 
-// }
+
 
 
 // UI Logic
 
+let order = new Order();
+
+function setUpEventListeners() {
+  $("#items").on("click", ".editBtn", function() {
+    console.log("test")
+    // $('#myModal').modal();
+  });
+  $("#items").on("click", ".removeBtn", function() {
+    order.removeOrderItem(this.id);
+    $("#items").hide()
+    displayOrderSummary(order);
+    displayOrderItem(pizza)
+
+  });
+};
+
+function displayOrderItem(item) {
+  $("#items").append(`<hr><p><strong>Item:</strong><br>${item.description}</p>`)
+}
+
+function displayOrderSummary(order) {
+  $("#items").append(
+    `<button type="button" id="edit" class="btn btn-custom editBtn">Edit</button>
+    <button type="button" id="${order.id}" class="btn btn-custom removeBtn">Remove</button>`
+    );
+    $("#order-total").html(`<p><strong>Order Total:</strong> $${order.cost}</p>`);
+};
+
 $(document).ready(function() {
-  // generate new user order
-  let order = new Order();
+  setUpEventListeners();
 
   // form submission
   $("#form").submit(function(e) {
@@ -65,7 +131,7 @@ $(document).ready(function() {
     extras = $("input:checkbox[name=extras]:checked");
     size = $("#select-size");
 
-    // collect user input
+    // collect, organize, and display user input
     let baseInput, toppingsInput, extrasInput, sizeInput;
     baseInput = base.val();
     toppingsInput = [];
@@ -80,16 +146,20 @@ $(document).ready(function() {
     });    
     sizeInput = size.val();
 
-    // organize and display user input
-    let userPizza = new Pizza(baseInput, toppingsInput, extrasInput, sizeInput);
-    userPizza.calculatePizzaCost();
-    $("#pizzas").append(
-      `<hr><p><strong>Item:</strong><br>Base: ${userPizza.base} <br>Toppings: ${userPizza.toppings.join(', ')} <br>Extras: ${userPizza.extras.join(', ')} <br>Size: ${userPizza.size} <br> Total: $${userPizza.cost}</p>
-      <button type="button" "id="edit" class="btn btn-custom">Edit</button>
-      <button type="button" id="remove" class="btn btn-custom">Remove</button>`
-      );
-    order.items.push(userPizza);
-    order.calculateOrderCost();
-    $("#order-total").html(`<p>Order Total: $${order.cost}</p>`);
+    let pizza = new Pizza(baseInput, toppingsInput, extrasInput, sizeInput);
+    order.addOrderItem(pizza);
+    displayOrderItem(pizza);
+    displayOrderSummary(order);
   });
 });
+
+
+  // $("#pizzas").append(
+  //   `<hr><p><strong>Item:</strong><br>Base: ${pizza.base}
+  //   <br>Toppings: ${pizza.toppings.join(', ')}
+  //   <br>Extras: ${pizza.extras.join(', ')}
+  //   <br>Size: ${pizza.size} 
+  //   <br> Total: $${pizza.cost}</p>
+  //   <button type="button" id="edit" class="btn btn-custom">Edit</button>
+  //   <button type="button" id="remove" class="btn btn-custom">Remove</button>`
+  //   );

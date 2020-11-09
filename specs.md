@@ -27,27 +27,10 @@ Func: Order.prototype.calculateOrderCost()
 --> expect:25
 
 
-<!-- 
-cancelOrder()
---removes order from UI
---removes order from Order object
-
-removeItem()
-
-editItem()
---allows user to select/deselect toppings 
--->
 
 
 UI Logic
 
-<!-- 
-attachEventListeners();
--cancel btn
--edit btn
-
-display() ???
- -->
 
 submit()
 /// describe: submits form, collects user input in object variable

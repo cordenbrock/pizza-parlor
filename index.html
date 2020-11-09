@@ -1,94 +1,131 @@
 <!DOCTYPE html>
  <html lang="en-US">
    <head>
-    <title>Pizza</title>
+    <title>DJ SPACEKITTY PIE</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script type="module" src="./node_modules/uuid/package.json"></script>
     <script src="js/pizza.js"></script>
    </head>
    <body>
-    <div class="container container-custom">
-        <h1 class="pt-5 pb-5">pick a pie</h1>
-      <div class="row">
-        <div class="col-md-6 col-custom">
-          <form id="form">
-            <div class="form-group">
-              <h3>Choose pie base:</h3>
-              <select name="base" id="select-base" class="form-control" >
-                  <option value="" disabled selected value>-- select pie base --</option>
-                  <option id="base-one" value="Grumblin' gargoyle gorgonzola crumbles">Grumblin' gargoyle gorgonzola crumbles</option>
-                  <option id="base-two" value="Unholy cheese water, unfiltered">Unholy cheese water, unfiltered</option>
-                  <option id="base-three" value="Mystery puree-of-the-day sauce extravaganza choice">Mystery puree-of-the-day sauce extravaganza choice</option>
-              </select>
+
+        <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#exampleModalLong">
+      View Space Pies
+    </button> -->
+
+    <!-- Modal -->
+    <div id="myModal">
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="form-group">
-              <h3>Choose Toppings:</h3>              
-              <div class="form-check">
-                <input id="select-toppings1" class="form-check-input" type="checkbox" name="toppings" value="Pepperoni?">
-                <label class="form-check-label" for="inlineCheckbox1">Pepperoni?</label>
+            <div class="modal-body">
+  
+              <div id="test">
               </div>
-              <div class="form-check">
-                <input id="select-toppings2" class="form-check-input" type="checkbox" name="toppings" value="Pepperoni doppelganger">
-                <label class="form-check-label" for="inlineCheckbox2">Pepperoni doppelganger</label>
-              </div>
-              <div class="form-check">
-                <input id="select-toppings3" class="form-check-input" type="checkbox" name="toppings" value="I can't believe it's not pepperoni!">
-                <label class="form-check-label" for="inlineCheckbox3">I can't believe it's not pepperoni!</label>
-              </div>
-              <div class="form-check">
-                <input id="select-toppings4" class="form-check-input" type="checkbox" name="toppings" value="To infinity and beyond pepperoni">
-                <label class="form-check-label" for="inlineCheckbox4">To infinity and beyond pepperoni</label>
-              </div>
-              <div class="form-check">
-                <input id="select-toppings5" class="form-check-input" type="checkbox" name="toppings" value="Holographically simulated pepperoni">
-                <label class="form-check-label" for="inlineCheckbox5">Holographically simulated pepperoni</label>
-              </div>
-            </div>  
-            <div class="form-group">
-              <h3>Choose Extra Toppings:</h3>
-              <div class="form-check">
-                <input id="select-extra1" class="form-check-input" type="checkbox" name="extras" value="Interstellar space salt">
-                <label class="form-check-label" for="inlineCheckbox1">Interstellar space salt</label>
-              </div>
-              <div class="form-check">
-                <input id="select-extra2" class="form-check-input" type="checkbox" name="extras" value="Prehistoric dragonmilk curdles">
-                <label class="form-check-label" for="inlineCheckbox2">Prehistoric dragonmilk curdles</label>
-              </div>
-              <div class="form-check">
-                <input id="select-extra3" class="form-check-input" type="checkbox" name="extras" value="Ashes from Babe Ruth's urn">
-                <label class="form-check-label" for="inlineCheckbox3">Ashes from Babe Ruth's urn</label>
-              </div>
-              <div class="form-check">
-                <input id="select-extra4" class="form-check-input" type="checkbox" name="extras" value="Ming Dynasty's Elixir of Life">
-                <label class="form-check-label" for="inlineCheckbox4">Ming Dynasty's Elixir of Life</label>
-              </div>
-              <div class="form-check">
-                <input id="select-extra5" class="form-check-input" type="checkbox" name="extras" value="Gentle whispers">
-                <label class="form-check-label" for="inlineCheckbox5">Gentle whispers</label>
-              </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
-            <div class="form-group">
-              <h3>Choose size:</h3>
-              <select name="size" id="select-size" class="form-control">
-                  <option value="" disabled selected value>-- select size --</option>
-                  <option id="small" value="Big-wimpin' style">Big-wimpin' style -- (sm)</option>
-                  <option id="medium" value="Paul Bunyan mode">Paul Bunyan mode -- (x-med)</option>
-                  <option id="large" value="Cosmic Sagan scale">Cosmic Sagan scale -- (whoa-lg)</option>
-              </select>
-            </div>
-            <input type="submit" class="btn btn-custom" value="submit"></input>
-          </form>
+          </div>
         </div>
-        <div class="col-md-6 col-custom">  
-          <h3>Order Items:</h3>
-          <div id="pizzas">
+      </div>
+    </div>
+
+
+    <header class="header">
+      <h2 class="pt-5 pb-5">Help build DJ Space Kitty a Cosmo-Pie to spin on her Astro-Player!</h2>
+    </header>
+    <div class="container">     
+      <div class="row">
+        <div class="col-md-6">          
+          <div class="col-md-12 col-custom">
+            <form id="form">
+              <div class="form-group">
+                <h3>Choose Size:</h3>
+                <select name="size" id="select-size" class="form-control">
+                    <option value="" disabled selected value>-- Select Size --</option>
+                    <option id="small" value="Big-wimpin' style">Big-wimpin' style -- (1")</option>
+                    <option id="medium" value="Paul Bunyan mode">Paul Bunyan mode -- (42")</option>
+                    <option id="large" value="Cosmic Sagan scale">Cosmic Sagan scale -- (∞")</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <h3>Choose Pie Base:</h3>
+                <select name="base" id="select-base" class="form-control" >
+                    <option value="" disabled selected value>-- Select pie base --</option>
+                    <option id="base-one" value="Grumblin' gargoyle gorgonzola crumbles">Grumblin' gargoyle gorgonzola crumbles</option>
+                    <option id="base-two" value="Unholy cheese water, unfiltered">Unholy cheese water, unfiltered</option>
+                    <option id="base-three" value="Mystery puree-of-the-day sauce extravaganza choice">Mystery puree-of-the-day sauce extravaganza choice</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <h3>Choose Toppings:</h3>              
+                <div class="form-check">
+                  <input id="select-toppings1" class="form-check-input" type="checkbox" name="toppings" value="Pepperoni?">
+                  <label class="form-check-label" for="inlineCheckbox1">Pepperoni?</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-toppings2" class="form-check-input" type="checkbox" name="toppings" value="Pepperoni doppelganger">
+                  <label class="form-check-label" for="inlineCheckbox2">Pepperoni doppelganger</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-toppings3" class="form-check-input" type="checkbox" name="toppings" value="I can't believe it's not pepperoni!">
+                  <label class="form-check-label" for="inlineCheckbox3">I can't believe it's not pepperoni!</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-toppings4" class="form-check-input" type="checkbox" name="toppings" value="To infinity and beyond pepperoni">
+                  <label class="form-check-label" for="inlineCheckbox4">To infinity and beyond pepperoni</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-toppings5" class="form-check-input" type="checkbox" name="toppings" value="Holographically simulated pepperoni">
+                  <label class="form-check-label" for="inlineCheckbox5">Holographically simulated pepperoni</label>
+                </div>
+              </div>  
+              <div class="form-group">
+                <h3>Choose Extra Toppings:</h3>
+                <div class="form-check">
+                  <input id="select-extra1" class="form-check-input" type="checkbox" name="extras" value="Interstellar space salt">
+                  <label class="form-check-label" for="inlineCheckbox1">Interstellar space salt</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-extra2" class="form-check-input" type="checkbox" name="extras" value="Prehistoric dragonmilk curdles">
+                  <label class="form-check-label" for="inlineCheckbox2">Prehistoric dragonmilk curdles</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-extra3" class="form-check-input" type="checkbox" name="extras" value="Ashes from Babe Ruth's urn">
+                  <label class="form-check-label" for="inlineCheckbox3">Ashes from Babe Ruth's urn</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-extra4" class="form-check-input" type="checkbox" name="extras" value="Ming's mercury-free Elixir of Life">
+                  <label class="form-check-label" for="inlineCheckbox4">Ming's mercury-free Elixir of Life</label>
+                </div>
+                <div class="form-check">
+                  <input id="select-extra5" class="form-check-input" type="checkbox" name="extras" value="Gentle whispers">
+                  <label class="form-check-label" for="inlineCheckbox5">Gentle whispers</label>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-custom" value="submit"></input>
+            </form>          
           </div>
-          <hr>
-          <div id="order-total">
-          </div>
+        </div>
+        <div class="col-md-6">  
+          <div class="col-md-12 col-custom">
+            <h3>Order Items:</h3>
+            <div id="items">
+            </div>
+            <hr>
+            <div id="order-total">
+            </div>
+          </div>                  
         </div>
       </div>
     </div>
