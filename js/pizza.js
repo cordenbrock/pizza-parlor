@@ -30,16 +30,6 @@ Order.prototype.addOrderItem = function(pizza) {
   this.calculateOrderCost();
 };
 
-
-
-// Order.prototype.findOrderItem = function(id) {
-//   for (let pizzaObj of this.items) {
-//     if (pizzaObj.id === id) {
-//       this.items = pizzaObj.id;
-//     };
-//   };
-// };
-
 Order.prototype.removeOrderItem = function(id) {
   let newArr = [];
   for (let pizzaObj of this.items) {
@@ -47,6 +37,7 @@ Order.prototype.removeOrderItem = function(id) {
     newArr = this.items.filter(pizzaObj => pizzaObj.id != id)
   };
   this.items = newArr;
+  this.calculateOrderCost()
 };
 
 
@@ -98,9 +89,9 @@ function setUpEventListeners() {
   });
   $("#items").on("click", ".removeBtn", function() {
     order.removeOrderItem(this.id);
-    $("#items").hide()
-    displayOrderSummary(order);
-    displayOrderItem(pizza)
+    console.log(order)
+    // displayOrderSummary(order);
+    // displayOrderItem(pizza)
 
   });
 };
@@ -150,16 +141,6 @@ $(document).ready(function() {
     order.addOrderItem(pizza);
     displayOrderItem(pizza);
     displayOrderSummary(order);
+    console.log(order)
   });
 });
-
-
-  // $("#pizzas").append(
-  //   `<hr><p><strong>Item:</strong><br>Base: ${pizza.base}
-  //   <br>Toppings: ${pizza.toppings.join(', ')}
-  //   <br>Extras: ${pizza.extras.join(', ')}
-  //   <br>Size: ${pizza.size} 
-  //   <br> Total: $${pizza.cost}</p>
-  //   <button type="button" id="edit" class="btn btn-custom">Edit</button>
-  //   <button type="button" id="remove" class="btn btn-custom">Remove</button>`
-  //   );

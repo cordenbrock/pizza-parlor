@@ -5,7 +5,7 @@
 
 ## Description
 
-_This web app accepts allows a user to submit an order for a pizza and although that pizza may never arriver, they will receive an itemized list of their order as well as the total order cost._
+_This web app accepts allows a user to submit an order for a pizza and although that pizza may never arrive, they will receive an itemized list of their order as well as the total order cost._
 
 _Expect very long delivery times..._
 

@@ -1,13 +1,16 @@
 :root {
-  --spaceKittyPurp: rgb(77, 37, 104);
-  --spaceKittyTeal: rgb(1, 165, 165);
+  --spaceKittyPurp: rgb(59, 27, 80);
+  --spaceKittyTeal: rgba(32, 235, 235, 0.753);
+  --spaceKittyBlurple: rgba(151, 11, 194, 0.239);
 }
 
 body {
   background: var(--spaceKittyTeal);
   background: radial-gradient(circle, rgba(128,240,233,1) 0%, rgba(129,219,234,1) 27%, rgba(131,121,241,1) 92%);
   background-size: cover;
-  color: var(--spaceKittyPurp);
+  color: rgb(208, 255, 255);
+  text-shadow: 0 0 .25rem var(--spaceKittyPurp)
+
 }
 
 body::after {
@@ -23,15 +26,22 @@ body::after {
   z-index: -1;   
 }
 
+h1, h3 {
+  font-family: 'Bungee Outline', cursive;
+  color: var(--spaceKittyPurp);
+  font-weight: bolder;
+  text-shadow: 0 0 .2rem var(--spaceKittyTeal);
+}
+
 header {
   text-align: center;
 }
 
 .col-custom {
-  background: rgba(0, 0, 255, 0.15);
+  background: var(--spaceKittyBlurple);
   padding: 3rem;
   margin: 3rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   box-shadow: 0 0 .5rem var(--spaceKittyTeal);
 }
 
