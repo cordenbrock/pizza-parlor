@@ -4,6 +4,8 @@
   --spaceKittyBlurple: rgba(151, 11, 194, 0.239);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+
 body {
   background: var(--spaceKittyTeal);
   background: radial-gradient(circle, rgba(128,240,233,1) 0%, rgba(129,219,234,1) 27%, rgba(131,121,241,1) 92%);
@@ -15,7 +17,7 @@ body {
 
 body::after {
   content: "";
-  background: url(../media/space-pizza-cat.jpg) no-repeat fixed;
+  background: url(./../img/space-pizza-cat.jpg) no-repeat fixed;
   background-size: cover;
   opacity: .5;
   top: 0;
